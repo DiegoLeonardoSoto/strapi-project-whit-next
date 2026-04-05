@@ -16,7 +16,7 @@ export default async function Home() {
 
   console.log(strapiData);
 
-  const { title, description } = strapiData;
+  const { title = "", description = "" } = strapiData || {};
 
   const [heroSection] = strapiData?.sections || [];
 
