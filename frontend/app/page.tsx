@@ -1,5 +1,5 @@
+"use cache";
 import { HeroSection } from "@/components/hero-section";
-import { Button } from "@/components/ui/button";
 import { getHomePage } from "@/lib/strapi";
 
 export async function generateMetadata() {
