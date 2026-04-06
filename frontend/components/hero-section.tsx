@@ -1,4 +1,4 @@
-import { STRAPI_BASE_URL } from "@/lib/strapi";
+import { NEXT_PUBLIC_STRAPI_BASE_URL } from "@/lib/strapi";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -30,7 +30,7 @@ export function HeroSection({
 
   const imageUrl = data.heroImage[0]?.url.startsWith("http")
     ? data.heroImage[0].url
-    : `${STRAPI_BASE_URL}${data.heroImage[0]?.url}`;
+    : `${NEXT_PUBLIC_STRAPI_BASE_URL}${data.heroImage[0]?.url}`;
 
   console.log(imageUrl);
 

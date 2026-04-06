@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
-import { STRAPI_BASE_URL } from "./lib/strapi";
+import { NEXT_PUBLIC_STRAPI_BASE_URL } from "./lib/strapi";
 
 const protectedRoutes = ["/dashboard"];
 
@@ -26,12 +26,15 @@ export async function proxy(request: NextRequest) {
       return NextResponse.redirect(new URL("/signIn", request.url));
     }
 
-    const response = await fetch(`${STRAPI_BASE_URL}/api/users/me`, {
-      headers: {
-        Authorization: `Bearer ${jwt}`,
-        "Content-Type": "application/json",
+    const response = await fetch(
+      `${NEXT_PUBLIC_STRAPI_BASE_URL}/api/users/me`,
+      {
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+          "Content-Type": "application/json",
+        },
       },
-    });
+    );
 
     const userResponse = await response.json();
 

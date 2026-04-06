@@ -1,7 +1,7 @@
 import qs from "qs";
 
-export const STRAPI_BASE_URL =
-  process.env.STRAPI_BASE_URL || "http://localhost:1337";
+export const NEXT_PUBLIC_STRAPI_BASE_URL =
+  process.env.NEXT_PUBLIC_STRAPI_BASE_URL || "http://localhost:1337";
 
 const QUERY_HOME_PAGE = {
   populate: {
@@ -34,7 +34,7 @@ export async function getHomePage() {
 
 export async function getStrapiData(url: string) {
   try {
-    const resp = await fetch(`${STRAPI_BASE_URL}${url}`);
+    const resp = await fetch(`${NEXT_PUBLIC_STRAPI_BASE_URL}${url}`);
 
     if (!resp.ok) {
       throw new Error(`Error fetching data: ${resp.statusText}`);
@@ -52,7 +52,7 @@ export async function registerUserService(userData: {
   email: string;
   password: string;
 }) {
-  const url = `${STRAPI_BASE_URL}/api/auth/local/register`;
+  const url = `${NEXT_PUBLIC_STRAPI_BASE_URL}/api/auth/local/register`;
 
   try {
     const response = await fetch(url, {
@@ -76,7 +76,7 @@ export async function loginUserService(userData: {
   email: string;
   password: string;
 }) {
-  const url = `${STRAPI_BASE_URL}/api/auth/local/login`;
+  const url = `${NEXT_PUBLIC_STRAPI_BASE_URL}/api/auth/local/login`;
 
   try {
     const response = await fetch(url, {
